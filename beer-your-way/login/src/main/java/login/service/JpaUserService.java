@@ -62,11 +62,10 @@ public class JpaUserService implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = getUser(email);
         if (!user.isPresent()) {
-            return null;
+            throw new UsernameNotFoundException(String.format("Email {} was not found!", email));
         }
         List<GrantedAuthority> authorities = createAuthorityList("ROLE_USER");
-        return new org.springframework.security.core.userdetails.User(user.get().getEmail(), user.get().getPassword(), true,
-                true, true, true, authorities);
+        return new org.springframework.security.core.userdetails.User(user.get().getEmail(), user.get().getPassword(), authorities);
     }
 
     @EventListener(ContextRefreshedEvent.class)
