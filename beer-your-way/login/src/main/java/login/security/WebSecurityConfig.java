@@ -15,14 +15,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .formLogin()
-                .loginPage("/login")
-                .failureUrl("/error-login")
+                .authorizeRequests()
+                .antMatchers(
+                        "/css/**", "/js/**", "/images/**")
                 .permitAll()
                 .and()
-            .logout()
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout()
                 .permitAll();
     }
+
     @Bean
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
