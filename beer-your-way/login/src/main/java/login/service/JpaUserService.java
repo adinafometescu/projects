@@ -1,5 +1,6 @@
 package login.service;
 
+import login.exception.DuplicateAccountException;
 import login.repository.UserRepository;
 import login.user.User;
 import login.user.UserService;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +36,26 @@ public class JpaUserService implements UserService, UserDetailsService {
 
     @Override
     public void saveUser(User user) {
+        Assert.notNull(user, "Undefined user");
+        Assert.notNull(user.getEmail(), "Email cannot be null");
+        Assert.notNull(user.getPassword(), "Password is missing");
         userRepository.save(user);
+    }
+
+    @Override
+    public void registerUser(User user) throws DuplicateAccountException {
+        Assert.notNull(user, "Undefined user");
+        Assert.notNull(user.getEmail(), "Email cannot be null");
+        Optional<User> registeredUser = getUser(user.getEmail());
+        if (registeredUser.isPresent()) {
+            throw new DuplicateAccountException();
+        }
+        saveUser(user);
+    }
+
+    @Override
+    public void deleteUser(String email) {
+        userRepository.deleteByEmail(email);
     }
 
     @Override

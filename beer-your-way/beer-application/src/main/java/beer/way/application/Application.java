@@ -1,7 +1,7 @@
 package beer.way.application;
 
 import login.LoginConfiguration;
-import login.security.WebSecurityConfig;
+import beer.way.application.config.WebSecurityConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
