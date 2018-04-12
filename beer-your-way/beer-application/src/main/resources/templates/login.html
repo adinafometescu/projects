@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8"/>
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-</head>
+<head th:include="fragments/header::head"/>
 <body>
-<div class="alert alert-warning" th:if="${error}">Invalid email or password!</div>
-<form th:action="@{/login}" method="post">
-    <div class="form-group">
-        <input type="email" name="email" id="email"
-               placeholder="user@example.com" required="required"
-               autofocus="autofocus"/>
+<nav th:replace="fragments/header :: header"></nav>
+<div class="container">
+    <div class="centered login-form">
+        <div class="alert alert-warning" th:if="${error}">Invalid email or password!</div>
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <input type="email" name="username" id="email"
+                       placeholder="user@example.com" required="required"
+                       autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password"
+                       placeholder="password" required="required"/>
+            </div>
+            <button type="submit" class="btn">
+                Sign in
+            </button>
     </div>
-    <div class="form-group">
-        <input type="password" name="password" id="password"
-               placeholder="password" required="required"/>
-    </div>
-    <button type="submit" class="btn">
-        Sign in
-    </button>
-</form>
+    </form>
+</div>
+<div>
 </body>
 </html>

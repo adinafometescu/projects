@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/css/menu-style.css" rel="stylesheet"/>
+
+</head>
+
+<header th:fragment="header">
+    <div id='cssmenu'>
+        <ul>
+            <li><a href='/'><span>Home</span></a></li>
+            <li class='active has-sub'><a href='#'><span>Products</span></a>
+                <ul>
+                    <li class='has-sub'><a href='#'><span>Product 1</span></a>
+                        <ul>
+                            <li><a href='#'><span>Sub Product</span></a></li>
+                            <li class='last'><a href='#'><span>Sub Product</span></a></li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'><a href='#'><span>Product 2</span></a>
+                        <ul>
+                            <li><a href='#'><span>Sub Product</span></a></li>
+                            <li class='last'><a href='#'><span>Sub Product</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href='#'><span>About</span></a></li>
+            <li class='last nav navbar-nav navbar-right'>
+                <a href='/login'><span>Account</span></a>
+            </li>
+        </ul>
+    </div>
+</header>

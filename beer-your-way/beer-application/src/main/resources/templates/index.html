@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Beer your way</title>
-    </head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head th:include="fragments/header::head"/>
     <body>
-        Beer your way
+        <nav th:replace="fragments/header :: header"></nav>
     </body>
 </html>
