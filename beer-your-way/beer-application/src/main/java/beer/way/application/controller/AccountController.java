@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
-public class RegisterController {
+public class AccountController {
     @Autowired
     UserService userService;
 
@@ -45,6 +45,11 @@ public class RegisterController {
     public String getRegisterPage(Map<String, Object> model) {
         model.put("userForm", new UserForm());
         return "register";
+    }
+
+    @GetMapping("/account")
+    public String getAccountPage(Map<String, Object> model) {
+        return "account";
     }
 
 }

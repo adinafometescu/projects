@@ -15,6 +15,7 @@
             <a href='/'><p> ADD LOGO - Beer your way</p></a>
         </div>
         <div id="lang-container">
+            <span th:text="${loginEmail}">Logged in as</span>
             <a href="?lang=ro"><img src="/images/ro.png"></a>
             <a href="?lang=en"><img src="/images/en.png"></a>
         </div>
@@ -39,10 +40,18 @@
                 </ul>
             </li>
             <li><a href='#'><span>About</span></a></li>
-
-            <li class='last nav navbar-nav navbar-right'>
-                <a href='/login'><span th:text="#{account.label}"/></a>
+            <li th:if="${loginEmail != null}" class='last nav navbar-nav navbar-right'>
+                <a href='#' id="logout-link"><span th:text="#{account.logout}"/></a>
+            </li>
+            <li th:if="${loginEmail != null}" class='last nav navbar-nav navbar-right'>
+                <a href='/account' id="my-account-link"><span th:text="#{account.my.account}"/></a>
+            </li>
+            <li th:if="${loginEmail == null}" class='last nav navbar-nav navbar-right'>
+                <a href='/login'><span th:text="#{account.login}"/></a>
             </li>
         </ul>
     </div>
+    <form id="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+        <input hidden type="submit" value="Sign Out"/>
+    </form>
 </header>

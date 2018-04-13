@@ -5,24 +5,21 @@
 <nav th:replace="fragments/header :: header"></nav>
 <div class="container">
     <div class="centered login-form">
-        <div class="text-danger" id="register-error-div" th:text="#{error.invalid.register}"
-             style="display:none;"/>
-
         <form th:action="@{/register}" th:object="${userForm}" id="registerForm" method="post">
             <div class="form-group">
                 <span class="form-input-label" th:text="#{user.first.name}"/>
                 <input type="text" th:field="*{firstName}" required="required"/>
-                <span class="text-danger"  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+                <span class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
             </div>
             <div class="form-group">
                 <span class="form-input-label" th:text="#{user.last.name}"/>
                 <input type="text" th:field="*{lastName}" required="required"/>
-                <span class="text-danger"  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+                <span class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
             </div>
             <div class="form-group">
                 <span class="form-input-label" th:text="#{user.email}"/>
                 <input type="text" th:field="*{email}" required="required"/>
-                <span class="text-danger"  th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+                <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
             </div>
             <div class="form-group">
                 <span class="form-input-label" th:text="#{user.password}"/>
