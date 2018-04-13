@@ -10,7 +10,16 @@
 </head>
 
 <header th:fragment="header">
-    <div id='cssmenu'>
+    <div class="header-top-container">
+        <div id="logo-container">
+            <a href='/'><p> ADD LOGO - Beer your way</p></a>
+        </div>
+        <div id="lang-container">
+            <a href="?lang=ro"><img src="/images/ro.png"></a>
+            <a href="?lang=en"><img src="/images/en.png"></a>
+        </div>
+    </div>
+    <div id='cssmenu' class="menu-area">
         <ul>
             <li><a href='/'><span>Home</span></a></li>
             <li class='active has-sub'><a href='#'><span>Products</span></a>
@@ -30,8 +39,9 @@
                 </ul>
             </li>
             <li><a href='#'><span>About</span></a></li>
+
             <li class='last nav navbar-nav navbar-right'>
-                <a href='/login'><span>Account</span></a>
+                <a href='/login'><span th:text="#{account.label}"/></a>
             </li>
         </ul>
     </div>

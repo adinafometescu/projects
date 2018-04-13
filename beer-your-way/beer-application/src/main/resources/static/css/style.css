@@ -13,3 +13,15 @@ header {
  position: relative;
  padding: 50px;
 }
+
+#lang-container{
+    float:right;
+}
+
+.header-top-container{
+    overflow:auto;
+}
+
+#logo-container{
+    float:left;
+}
