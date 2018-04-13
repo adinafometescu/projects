@@ -37,6 +37,8 @@ public class JpaUserService implements UserService, UserDetailsService {
     @Override
     public void saveUser(User user) {
         Assert.notNull(user, "Undefined user");
+        Assert.notNull(user.getFirstName(), "First name cannot be null");
+        Assert.notNull(user.getLastName(), "Last name cannot be null");
         Assert.notNull(user.getEmail(), "Email cannot be null");
         Assert.notNull(user.getPassword(), "Password is missing");
         userRepository.save(user);
@@ -72,6 +74,8 @@ public class JpaUserService implements UserService, UserDetailsService {
     public void addTestUser() {
         User user = new User();
         user.setEmail("adina.fometescu@gmail.com");
+        user.setFirstName("Adina");
+        user.setLastName("Fometescu");
         user.setPassword(passwordEncoder.encode("123456"));
         saveUser(user);
     }

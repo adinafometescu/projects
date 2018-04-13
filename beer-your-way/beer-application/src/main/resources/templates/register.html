@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/header::head"/>
+<body>
+<nav th:replace="fragments/header :: header"></nav>
+<div class="container">
+    <div class="centered login-form">
+        <div class="text-danger" id="register-error-div" th:text="#{error.invalid.register}"
+             style="display:none;"/>
+
+        <form th:action="@{/register}" th:object="${userForm}" id="registerForm" method="post">
+            <div class="form-group">
+                <span class="form-input-label" th:text="#{user.first.name}"/>
+                <input type="text" th:field="*{firstName}" required="required"/>
+                <span class="text-danger"  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+            </div>
+            <div class="form-group">
+                <span class="form-input-label" th:text="#{user.last.name}"/>
+                <input type="text" th:field="*{lastName}" required="required"/>
+                <span class="text-danger"  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+            </div>
+            <div class="form-group">
+                <span class="form-input-label" th:text="#{user.email}"/>
+                <input type="text" th:field="*{email}" required="required"/>
+                <span class="text-danger"  th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+            </div>
+            <div class="form-group">
+                <span class="form-input-label" th:text="#{user.password}"/>
+                <input type="password" th:field="*{password}" required="required"/>
+                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+            </div>
+            <button type="submit" class="btn" id="registerButton">
+                <span th:text="#{button.register}"/>
+            </button>
+    </div>
+    </form>
+</div>
+<div>
+    <nav th:replace="fragments/footer :: footer"></nav>
+</body>
+</html>

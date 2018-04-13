@@ -24,21 +24,4 @@ public class LoginController {
         model.put("error", error);
         return "login";
     }
-
-    @PostMapping("/register")
-    @ResponseBody
-    public ResponseEntity<?> register(@ModelAttribute UserForm userForm) {
-
-        User user = new User();
-        user.setEmail(userForm.getEmail());
-        user.setPassword(userForm.getPassword());
-
-        try {
-            userService.registerUser(user);
-        } catch (DuplicateAccountException e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>(HttpStatus.CREATED);
-
-    }
 }

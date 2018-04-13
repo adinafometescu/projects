@@ -6,9 +6,14 @@ header {
     -webkit-background-size: cover;
     background-size: cover;
     color: #fff;
-    padding: 50px 0;
+    padding-top: 10px;
 }
-
+footer{
+    background-color: #080808;
+}
+.main-content-container{
+    min-height: 600px;
+}
 .login-form{
  position: relative;
  padding: 50px;
@@ -24,4 +29,8 @@ header {
 
 #logo-container{
     float:left;
+}
+.form-input-label{
+    float: left; width: 6em; text-align: left;
+    padding-right:5px;
 }

@@ -17,8 +17,9 @@
                        placeholder="password" required="required"/>
             </div>
             <button type="submit" class="btn">
-                Sign in
+                <span th:text="#{button.login}"/>
             </button>
+            <div class="register"><span th:utext="#{register.link.label}"/></div>
     </div>
     </form>
 </div>
