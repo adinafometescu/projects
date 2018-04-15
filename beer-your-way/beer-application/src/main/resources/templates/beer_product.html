@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/header::head">
+</head>
+<link href="/css/product.css" rel="stylesheet"/>
+<body>
+<nav th:replace="fragments/header :: header"></nav>
+<div class="container main-content-container">
+    <div class="product-details">
+        <div class="product-details-info">
+            <img th:src="@{${'/images/product/'+ product.image}}"/>
+        </div>
+        <div class="product-details-info">
+            <h3 th:text="${product.title.get(#locale)}">Product title</h3>
+            <div th:text="${product.shortDescription.get(#locale)}"/>
+        </div>
+
+    </div>
+</div>
+<nav th:replace="fragments/footer :: footer"></nav>
+</body>
+</html>

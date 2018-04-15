@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head th:include="fragments/header::head"/>
+    <head th:replace="fragments/header::head">
+        <div th:include="fragments/maps::header"/>
+    </head>
     <body>
-        <nav th:replace="fragments/header :: header"></nav>
+        <nav th:replace="fragments/header :: header"/>
+        <h3 th:text="#{company.search}"></h3>
+        <div id="map"></div>
         <div class="container main-content-container">
             Test content
         </div>
         <nav th:replace="fragments/footer :: footer"></nav>
+        <div th:include="fragments/maps::footer"/>
     </body>
 </html>

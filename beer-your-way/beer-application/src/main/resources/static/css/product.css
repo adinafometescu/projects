@@ -1,0 +1,11 @@
+
+.product-details-info img{
+    max-width:250px;
+    max-height:300px;
+}
+.product-details{
+    padding: 50px;
+}
+.product-details, .product-details-info{
+    display: inline-block;
+}

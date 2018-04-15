@@ -30,7 +30,10 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
         <dependency>
             <groupId>projects</groupId>
             <artifactId>login</artifactId>

@@ -8,6 +8,9 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -25,6 +28,17 @@ public class BeerService {
         BeerProduct beerProduct = new BeerProduct();
         beerProduct.setId("123");
         beerProduct.setBrand("DOO");
+        Map<Locale,String> title = new HashMap<>();
+        title.put(Locale.ENGLISH,"Product title");
+        title.put(new Locale("ro"),"Titlu");
+        beerProduct.setTitle(title);
+
+        Map<Locale,String> shortDescription = new HashMap<>();
+        shortDescription.put(Locale.ENGLISH,"This is a cool product");
+        shortDescription.put(new Locale("ro"),"Acesta este un produs cool");
+        beerProduct.setShortDescription(shortDescription);
+
+        beerProduct.setImage("rochefort.jpg");
         beerProduct.setPrice(BigDecimal.TEN);
         beerProductRepository.save(beerProduct);
     }
