@@ -19,8 +19,8 @@
     </properties>
     <modules>
         <module>beer-application</module>
-        <module>beer-model</module>
-        <module>product-model</module>
+        <module>product/beer-product</module>
+        <module>product/product-model</module>
         <module>login</module>
     </modules>
     <dependencies> <!-- Use Log4J for logging -->
