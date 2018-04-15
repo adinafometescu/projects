@@ -1,12 +1,17 @@
 package beer.way.product;
 
+import org.springframework.data.annotation.Id;
+
 import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Map;
 
 public class Product {
 
+    @Id
     private String id;
+
+    private String brand;
 
     private Map<Locale, String> title;
 
@@ -74,5 +79,13 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }
