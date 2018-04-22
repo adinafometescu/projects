@@ -1,8 +1,8 @@
-package beer.way.application;
+package com.project.byw;
 
-import beer.way.application.config.LocaleConfig;
-import beer.way.application.config.WebSecurityConfig;
 import beer.way.product.ProductConfig;
+import com.project.byw.config.LocaleConfig;
+import com.project.byw.config.WebSecurityConfig;
 import login.LoginConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

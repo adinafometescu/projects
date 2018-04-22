@@ -1,4 +1,4 @@
-package beer.way.application.form;
+package com.project.byw.form;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

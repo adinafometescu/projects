@@ -1,6 +1,6 @@
-package beer.way.application.controller;
+package com.project.byw.controller;
 
-import beer.way.application.exception.ProductNotFound;
+import com.project.byw.exception.ProductNotFound;
 import beer.way.product.model.BeerProduct;
 import beer.way.product.service.BeerService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package beer.way.application.controller;
+package com.project.byw.controller;
 
-import beer.way.application.form.UserForm;
+import com.project.byw.form.UserForm;
 import login.exception.DuplicateAccountException;
 import login.user.User;
 import login.user.UserService;

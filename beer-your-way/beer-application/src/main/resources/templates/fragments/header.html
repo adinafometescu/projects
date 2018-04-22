@@ -23,15 +23,10 @@
     <div id='cssmenu' class="menu-area">
         <ul>
             <li><a href='/'><span>Home</span></a></li>
-            <li class='active has-sub'><a href='#'><span>Products</span></a>
+            <li class='active has-sub'><a href='#'><span th:text="#{search.menu}"/></a>
                 <ul>
-                    <li class='has-sub'><a href='#'><span>Product 1</span></a>
-                        <ul>
-                            <li><a href='#'><span>Sub Product</span></a></li>
-                            <li class='last'><a href='#'><span>Sub Product</span></a></li>
-                        </ul>
-                    </li>
-                    <li class='has-sub'><a href='#'><span>Product 2</span></a>
+                    <li class='has-sub'><a href='/pubs'><span th:text="#{search.menu.company}"/></a></li>
+                    <li class='has-sub'><a href='#'><span th:text="#{search.menu.beer}"/></a>
                         <ul>
                             <li><a href='#'><span>Sub Product</span></a></li>
                             <li class='last'><a href='#'><span>Sub Product</span></a></li>

@@ -1,4 +1,4 @@
-package beer.way.application.controller;
+package com.project.byw.controller;
 
 import login.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

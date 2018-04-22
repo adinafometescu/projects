@@ -1,7 +1,7 @@
-package beer.way.application;
+package com.project.byw;
 
-import beer.way.application.config.WebSecurityConfig;
-import beer.way.application.form.UserForm;
+import com.project.byw.config.WebSecurityConfig;
+import com.project.byw.form.UserForm;
 import login.LoginConfiguration;
 import login.user.UserService;
 import org.junit.Before;

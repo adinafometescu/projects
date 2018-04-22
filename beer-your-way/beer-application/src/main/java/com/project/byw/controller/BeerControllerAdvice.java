@@ -1,4 +1,4 @@
-package beer.way.application.controller;
+package com.project.byw.controller;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;

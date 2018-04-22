@@ -1,4 +1,4 @@
-package beer.way.application.config;
+package com.project.byw.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

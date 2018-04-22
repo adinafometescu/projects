@@ -1,4 +1,4 @@
-package beer.way.application.exception;
+package com.project.byw.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
