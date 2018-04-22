@@ -1,6 +1,6 @@
-package beer.way.product.repository;
+package com.project.byw.product.repository;
 
-import beer.way.product.model.BeerProduct;
+import com.project.byw.product.model.BeerProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 

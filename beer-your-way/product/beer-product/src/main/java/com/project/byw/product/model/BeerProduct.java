@@ -1,6 +1,6 @@
-package beer.way.product.model;
+package com.project.byw.product.model;
 
-import beer.way.product.Product;
+import com.project.byw.product.Product;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 @Document(indexName = "beer", type = "product")

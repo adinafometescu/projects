@@ -1,7 +1,7 @@
-package beer.way.product.service;
+package com.project.byw.product.service;
 
-import beer.way.product.model.BeerProduct;
-import beer.way.product.repository.BeerProductRepository;
+import com.project.byw.product.model.BeerProduct;
+import com.project.byw.product.repository.BeerProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
