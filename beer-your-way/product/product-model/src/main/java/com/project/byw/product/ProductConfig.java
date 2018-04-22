@@ -1,4 +1,4 @@
-package beer.way.product;
+package com.project.byw.product;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;

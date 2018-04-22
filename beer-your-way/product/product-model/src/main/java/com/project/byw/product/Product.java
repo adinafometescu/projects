@@ -1,4 +1,4 @@
-package beer.way.product;
+package com.project.byw.product;
 
 import org.springframework.data.annotation.Id;
 

@@ -23,6 +23,8 @@
         <module>product/beer-product</module>
         <module>product/product-model</module>
         <module>login</module>
+        <module>pub</module>
+        <module>location</module>
     </modules>
 
     <dependencies> <!-- Use Log4J for logging -->

@@ -2,8 +2,8 @@ package com.project.byw;
 
 import com.project.byw.config.WebSecurityConfig;
 import com.project.byw.form.UserForm;
-import login.LoginConfiguration;
-import login.user.UserService;
+import com.project.login.LoginConfiguration;
+import com.project.login.user.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

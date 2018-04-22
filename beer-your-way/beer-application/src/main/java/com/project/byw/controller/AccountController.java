@@ -1,9 +1,9 @@
 package com.project.byw.controller;
 
 import com.project.byw.form.UserForm;
-import login.exception.DuplicateAccountException;
-import login.user.User;
-import login.user.UserService;
+import com.project.login.exception.DuplicateAccountException;
+import com.project.login.user.User;
+import com.project.login.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
