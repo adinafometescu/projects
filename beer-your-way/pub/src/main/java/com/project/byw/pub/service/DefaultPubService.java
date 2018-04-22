@@ -1,5 +1,6 @@
 package com.project.byw.pub.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.byw.pub.Pub;
 import com.project.byw.pub.repository.PubRepository;
 import com.project.location.GeoLocation;
@@ -10,15 +11,17 @@ import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class DefaultPubService implements PubService {
@@ -32,8 +35,12 @@ public class DefaultPubService implements PubService {
     @Autowired
     private Client client;
 
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+    private Logger logger = LoggerFactory.getLogger(DefaultPubService.class);
+
     @Override
-    public List<String> findPubsWithin(Integer distance) {
+    public List<Pub> findPubsWithin(Integer distance) {
         GeoLocation geoLocation = locationService.getCurrentLocation();
         QueryBuilder qb = QueryBuilders.geoDistanceQuery("location")
                 .point(geoLocation.getLat(), geoLocation.getLng())
@@ -44,10 +51,18 @@ public class DefaultPubService implements PubService {
                 .setQuery(qb)
                 .execute()
                 .actionGet();
-        return Arrays.stream(searchResponse.getHits()
-                .getHits())
-                .map(SearchHit::getId)
-                .collect(Collectors.toList());
+        List<Pub> list = new ArrayList<>();
+        for (SearchHit hit : searchResponse.getHits().getHits()) {
+            Pub pub;
+            try {
+                pub = objectMapper.readValue(hit.getSourceAsString(), Pub.class);
+            } catch (IOException e) {
+                logger.error("Cannot read pub from result ", e);
+                continue;
+            }
+            list.add(pub);
+        }
+        return list;
     }
 
     @EventListener(ContextRefreshedEvent.class)

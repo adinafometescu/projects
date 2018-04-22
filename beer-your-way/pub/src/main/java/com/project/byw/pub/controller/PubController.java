@@ -16,7 +16,7 @@ public class PubController {
     PubService pubService;
 
     @GetMapping("/search/pubs")
-    List<String> getPubsWithinDistance(@RequestParam Integer distance) {
+    List<Pub> getPubsWithinDistance(@RequestParam Integer distance) {
         return pubService.findPubsWithin(distance);
     }
 }
