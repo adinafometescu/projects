@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head th:include="fragments/header::head"/>
-    <head th:include="fragments/maps::header"/>
+    <head th:replace="fragments/maps::header"/>
     <body>
         <nav th:replace="fragments/header :: header"></nav>
         <div class="container">
@@ -9,8 +8,7 @@
             <div id="map"></div>
         </div>
         <div>
-            <nav th:replace="fragments/footer :: footer"></nav>
+            <nav th:replace="fragments/maps :: footer"></nav>
         </div>
     </body>
-    <div th:include="fragments/maps::footer"/>
 </html>

@@ -1,22 +1,20 @@
 package com.project.byw.form;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UserForm {
 
-    @NotEmpty
+    @NotNull
     private String firstName;
 
-    @NotEmpty
+    @NotNull
     private String lastName;
 
-    @NotEmpty
-    @Email
+    @NotNull
     private String email;
 
-    @NotEmpty
+    @NotNull
     @Size(min = 6, max = 15)
     private String password;
 

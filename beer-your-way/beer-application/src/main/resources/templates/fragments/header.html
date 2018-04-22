@@ -16,8 +16,8 @@
         </div>
         <div id="lang-container">
             <span th:text="${loginEmail}">Logged in as</span>
-            <a href="?lang=ro"><img src="/images/ro.png"></a>
-            <a href="?lang=en"><img src="/images/en.png"></a>
+            <a href="?lang=ro"><img src="/images/ro.png"/></a>
+            <a href="?lang=en"><img src="/images/en.png"/></a>
         </div>
     </div>
     <div id='cssmenu' class="menu-area">
@@ -47,6 +47,7 @@
         </ul>
     </div>
     <form id="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-        <input hidden type="submit" value="Sign Out"/>
+        <input th:hidden="true" type="submit" value="Sign Out"/>
     </form>
 </header>
+</html>

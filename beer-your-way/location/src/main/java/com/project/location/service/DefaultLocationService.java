@@ -17,7 +17,7 @@ public class DefaultLocationService implements LocationService {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    @Value("${google.api.key}[875§§")
+    @Value("${google.api.key}")
     String googleApiKey;
 
     public GeoLocation getCurrentLocation() {

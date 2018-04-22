@@ -1,17 +1,14 @@
 package com.project.byw.pub;
 
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
-@Entity
-public class Pub {
+@Document(indexName = "pub", type = "geo-class-point-type")
+public class Pub{
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private String id;
 
     private String name;
