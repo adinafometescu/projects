@@ -1,4 +1,4 @@
-package login.user;
+package com.project.login.user;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

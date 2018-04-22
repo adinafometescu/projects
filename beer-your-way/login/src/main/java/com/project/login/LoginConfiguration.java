@@ -1,4 +1,4 @@
-package login;
+package com.project.login;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;

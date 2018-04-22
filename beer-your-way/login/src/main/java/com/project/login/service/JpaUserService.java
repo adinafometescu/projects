@@ -1,9 +1,9 @@
-package login.service;
+package com.project.login.service;
 
-import login.exception.DuplicateAccountException;
-import login.repository.UserRepository;
-import login.user.User;
-import login.user.UserService;
+import com.project.login.repository.UserRepository;
+import com.project.login.user.User;
+import com.project.login.exception.DuplicateAccountException;
+import com.project.login.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;

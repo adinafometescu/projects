@@ -1,6 +1,6 @@
-package login.repository;
+package com.project.login.repository;
 
-import login.user.User;
+import com.project.login.user.User;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;

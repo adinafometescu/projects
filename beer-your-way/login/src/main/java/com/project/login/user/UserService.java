@@ -1,6 +1,6 @@
-package login.user;
+package com.project.login.user;
 
-import login.exception.DuplicateAccountException;
+import com.project.login.exception.DuplicateAccountException;
 
 import java.util.Optional;
 
