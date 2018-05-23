@@ -33,7 +33,7 @@ public class DefaultPubService implements PubService {
     PubRepository pubRepository;
 
     @Autowired
-    private Client client;
+    Client client;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -41,7 +41,11 @@ public class DefaultPubService implements PubService {
 
     @Override
     public List<Pub> findPubsWithin(Integer distance) {
-        GeoLocation geoLocation = locationService.getCurrentLocation();
+        return findPubsWithin(locationService.getCurrentLocation(), distance);
+    }
+
+    @Override
+    public List<Pub> findPubsWithin(GeoLocation geoLocation, Integer distance) {
         QueryBuilder qb = QueryBuilders.geoDistanceQuery("location")
                 .point(geoLocation.getLat(), geoLocation.getLng())
                 .distance(distance, DistanceUnit.KILOMETERS);
