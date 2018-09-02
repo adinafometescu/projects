@@ -3,9 +3,10 @@
     <head th:replace="fragments/header::head"></head>
     <body>
         <nav th:replace="fragments/header :: header"/>
-        <h3 th:text="#{company.search}"></h3>
         <div class="container main-content-container">
+            <h3 th:text="#{company.search}"></h3>
             Test content
+            <nav th:replace="fragments/search :: beer"></nav>
         </div>
         <nav th:replace="fragments/footer :: footer"></nav>
     </body>

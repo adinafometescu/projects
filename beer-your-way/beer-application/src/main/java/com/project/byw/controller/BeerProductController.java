@@ -1,8 +1,9 @@
 package com.project.byw.controller;
 
 import com.project.byw.exception.ProductNotFound;
-import com.project.byw.product.model.BeerProduct;
-import com.project.byw.product.service.BeerService;
+import com.project.byw.beer.product.BeerProduct;
+import com.project.byw.service.BeerFilter;
+import com.project.byw.service.BeerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +26,11 @@ public class BeerProductController {
         }
         model.put("product", beerProduct.get());
         return "beer_product";
+    }
+
+    @GetMapping("/search/beer")
+    public String getBeerResults(BeerFilter searchForm, Map<String, Object> model) {
+        model.put("beerResults", beerService.searchBeers(searchForm));
+        return "beer_results";
     }
 }
