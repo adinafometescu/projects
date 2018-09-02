@@ -7,7 +7,7 @@
 <nav th:replace="fragments/header :: header"></nav>
 <div class="container main-content-container">
     <div th:each="beer: ${beerResults}">
-        <img th:src="@{${'/images/product/'+ beer.image}}"/>
+        <img th:src="@{${'/images/product/'+ beer.image}}" width="10%" height="10%"/>
         <h1 th:text="${beer.title.get(#locale)}">Product title</h1>
     </div>
 </div>

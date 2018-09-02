@@ -2,19 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <search th:fragment="beer">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-    <div class="beer-search">
-       <div data-role="main" class="ui-content">
-           <form method="get" action="/search/beer">
-               <div data-role="rangeslider">
-                   <label for="priceMin">Price:</label>
-                   <input type="range" name="priceMin" id="priceMin" value="200" min="0" max="1000"/>
-                   <label for="priceMax">Price:</label>
-                   <input type="range" name="priceMax" id="priceMax" value="800" min="0" max="1000"/>
-               </div>
-               <input type="submit" data-inline="true" value="Submit"/>
-           </form>
-       </div>
-   </div>
+    <div class="panel panel-primary beer-search-panel">
+        <div class="panel-heading">Search your beer</div>
+        <div class="panel-body">
+            <div data-role="main" class="ui-content">
+                <form method="get" action="/search/beer">
+                    <div data-role="rangeslider">
+                        <label for="priceMin">Price:</label>
+                        <input type="range" name="priceMin" id="priceMin" value="200" min="0" max="1000"/>
+                        <label for="priceMax">Price:</label>
+                        <input type="range" name="priceMax" id="priceMax" value="800" min="0" max="1000"/>
+                    </div>
+                    <input type="submit" data-inline="true" value="Submit"/>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </search>

@@ -2,6 +2,7 @@ package com.project.byw.service;
 
 import com.project.byw.beer.product.BeerProduct;
 import com.project.byw.beer.product.BeerProductRepository;
+import com.project.byw.beer.product.BeerTaste;
 import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -59,7 +60,7 @@ public class DefaultBeerService implements BeerService {
         shortDescription.put(Locale.ENGLISH, "This is a cool product");
         shortDescription.put(new Locale("ro"), "Acesta este un produs cool");
         beerProduct.setShortDescription(shortDescription);
-
+        beerProduct.setTaste(BeerTaste.BALANCED);
         beerProduct.setImage("rochefort.jpg");
         beerProduct.setPrice(BigDecimal.TEN);
         beerProductRepository.save(beerProduct);

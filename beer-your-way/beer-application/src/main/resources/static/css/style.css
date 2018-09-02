@@ -34,3 +34,10 @@ footer{
     float: left; width: 6em; text-align: left;
     padding-right:5px;
 }
+
+.main-content-container, .beer-search-panel{
+    padding-top:20px;
+
+}.beer-search-panel{
+    max-width:60%;
+}
