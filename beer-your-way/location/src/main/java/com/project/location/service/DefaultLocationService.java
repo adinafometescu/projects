@@ -4,6 +4,7 @@ import com.project.location.GeoLocation;
 import com.project.location.GeoLocationResponse;
 import com.project.location.LocationNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -20,6 +21,7 @@ public class DefaultLocationService implements LocationService {
     @Value("${google.api.key}")
     String googleApiKey;
 
+    @Cacheable("location")
     public GeoLocation getCurrentLocation() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
