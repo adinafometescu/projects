@@ -1,31 +1,14 @@
 package com.project.byw.service;
 
-import com.project.byw.beer.product.BeerTaste;
+import com.project.byw.product.BeerTaste;
 
 import java.math.BigDecimal;
-public class BeerFilter{
 
-    private BigDecimal priceMin;
+public class BeerFilter {
 
-    private BigDecimal priceMax;
+    private PriceRange priceRange = new PriceRange();
 
     private BeerTaste taste;
-
-    public BigDecimal getPriceMin() {
-        return priceMin;
-    }
-
-    public void setPriceMin(BigDecimal priceMin) {
-        this.priceMin = priceMin;
-    }
-
-    public BigDecimal getPriceMax() {
-        return priceMax;
-    }
-
-    public void setPriceMax(BigDecimal priceMax) {
-        this.priceMax = priceMax;
-    }
 
     public BeerTaste getTaste() {
         return taste;
@@ -34,4 +17,22 @@ public class BeerFilter{
     public void setTaste(BeerTaste taste) {
         this.taste = taste;
     }
+
+    public PriceRange getPriceRange() {
+        return priceRange;
+    }
+
+    public void setPriceRange(PriceRange priceRange) {
+        this.priceRange = priceRange;
+    }
+
+    public void setPriceMin(BigDecimal priceMin) {
+        this.priceRange.setPriceMin(priceMin);
+    }
+
+    public void setPriceMax(BigDecimal priceMax) {
+        this.priceRange.setPriceMax(priceMax);
+    }
+
+
 }

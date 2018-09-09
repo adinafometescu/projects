@@ -20,11 +20,11 @@
     </properties>
     <modules>
         <module>beer-application</module>
-        <module>product/beer-product</module>
-        <module>product/product-model</module>
         <module>login</module>
         <module>pub</module>
         <module>location</module>
+        <module>beer-model</module>
+        <module>beer-search</module>
     </modules>
     <dependencies>
         <dependency>

@@ -1,30 +1,26 @@
 package com.project.byw.service;
 
-import com.project.byw.beer.product.BeerProduct;
-import com.project.byw.beer.product.BeerProductRepository;
-import com.project.byw.beer.product.BeerTaste;
-import org.elasticsearch.index.query.RangeQueryBuilder;
+import com.project.byw.product.BeerProduct;
+import com.project.byw.product.BeerTaste;
+import com.project.byw.product.repository.BeerProductRepository;
+import com.project.byw.search.QueryProvider;
+import com.project.byw.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.*;
 
-import static org.elasticsearch.index.query.QueryBuilders.rangeQuery;
-
 @Service
 public class DefaultBeerService implements BeerService {
 
     @Autowired
-    BeerProductRepository beerProductRepository;
+    private BeerProductRepository beerProductRepository;
 
     @Autowired
-    private ElasticsearchTemplate elasticsearchTemplate;
+    private SearchService searchService;
 
     @Override
     public Optional<BeerProduct> getBeerWithId(String id) {
@@ -32,18 +28,17 @@ public class DefaultBeerService implements BeerService {
     }
 
     @Override
-    public List<BeerProduct> searchBeers(BeerFilter beerFilter) {
-        RangeQueryBuilder priceRange = rangeQuery("price");
-        if (beerFilter.getPriceMin() != null) {
-            priceRange.gte(beerFilter.getPriceMin());
-        }
-        if (beerFilter.getPriceMax() != null) {
-            priceRange.lte(beerFilter.getPriceMax());
-        }
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withFilter(priceRange)
-                .build();
-        return elasticsearchTemplate.queryForList(searchQuery, BeerProduct.class);
+    public List<BeerProduct> searchBeers(List<QueryProvider> queryProviders) {
+        return searchService.searchProductsWithFilters(queryProviders, BeerProduct.class);
+    }
+
+    @Override
+    public PriceRange getPriceRange() {
+        PriceRange priceRange = new PriceRange();
+        String price = "price";
+        priceRange.setPriceMax(BigDecimal.valueOf(searchService.getMaxValue(price)));
+        priceRange.setPriceMin(BigDecimal.valueOf(searchService.getMinValue(price)));
+        return priceRange;
     }
 
     @EventListener(ContextRefreshedEvent.class)
@@ -64,5 +59,22 @@ public class DefaultBeerService implements BeerService {
         beerProduct.setImage("rochefort.jpg");
         beerProduct.setPrice(BigDecimal.TEN);
         beerProductRepository.save(beerProduct);
+
+        BeerProduct beerProduct2 = new BeerProduct();
+        beerProduct2.setId("2233");
+        beerProduct2.setBrand("DOO");
+        Map<Locale, String> title2 = new HashMap<>();
+        title2.put(Locale.ENGLISH, "Product title");
+        title2.put(new Locale("ro"), "Titlu");
+        beerProduct2.setTitle(title2);
+
+        Map<Locale, String> shortDescription2 = new HashMap<>();
+        shortDescription2.put(Locale.ENGLISH, "This is a cool product");
+        shortDescription2.put(new Locale("ro"), "Acesta este un produs cool");
+        beerProduct2.setShortDescription(shortDescription2);
+        beerProduct2.setTaste(BeerTaste.BALANCED);
+        beerProduct2.setImage("rochefort.jpg");
+        beerProduct2.setPrice(BigDecimal.valueOf(200));
+        beerProductRepository.save(beerProduct2);
     }
 }

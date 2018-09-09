@@ -1,4 +1,4 @@
-package com.project.byw.beer.product;
+package com.project.byw.product;
 
 public enum  BeerTaste {
 

@@ -1,4 +1,4 @@
-package com.project.byw.beer.product;
+package com.project.byw.product;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 

@@ -7,8 +7,21 @@
 <nav th:replace="fragments/header :: header"></nav>
 <div class="container main-content-container">
     <div th:each="beer: ${beerResults}">
-        <img th:src="@{${'/images/product/'+ beer.image}}" width="10%" height="10%"/>
-        <h1 th:text="${beer.title.get(#locale)}">Product title</h1>
+        <div class="row like-table-row" style="padding-top:20px;">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="vertical-align">
+                    <img th:src="@{${'/images/product/'+ beer.image}}" width="150px;" height="100%"/>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="vertical-align">
+                    <h3 th:text="${beer.title.get(#locale)}">Product title</h3>
+                    <p th:text="${beer.shortDescription.get(#locale)}"/>
+                    <a th:href="@{${'/beer/'+ beer.id}}" class="btn btn-primary active" role="button">Details</a>
+                </div>
+            </div>
+        </div>
+        <hr/>
     </div>
 </div>
 <nav th:replace="fragments/footer :: footer"></nav>
